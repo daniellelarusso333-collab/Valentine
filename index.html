@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+  }
+
+  /* Floating hearts */
+  .heart {
+    position: absolute;
+    font-size: 22px;
+    animation: float 6s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+  }
+
+  .container {
+    background: white;
+    padding: 28px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    width: 340px;
+    animation: pop 0.6s ease;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  h1 {
+    color: #ff4d6d;
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 12px;
+  }
+
+  .top-img {
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    height: 120px;
+    position: relative;
+  }
+
+  button {
+    padding: 14px 26px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #noBtn {
+    background: #ddd;
+    color: #333;
+    left: 20%;
+    top: 50px;
+  }
+
+  /* RESULT PAGE */
+  .result {
+    display: none;
+  }
+
+  .gif {
+    width: 100%;
+    border-radius: 18px;
+    margin-top: 10px;
+  }
+
+  .media {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .media img {
+    width: 100%;
+    border-radius: 15px;
+  }
+</style>
+</head>
+
+<body>
+
+<script>
+  for (let i = 0; i < 18; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+    document.body.appendChild(heart);
+  }
+</script>
+
+<!-- FIRST PAGE -->
+<div class="container" id="main">
+  <!-- FIRST PAGE IMAGE -->
+  <img src="first.jpg" class="top-img">
+
+  <h1>Will you be my Valentine, ANAGHA? 💕</h1>
+  <p>I made this just for you 🥺👉👈</p>
+
+  <div class="buttons">
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 💔</button>
+  </div>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="container result" id="result">
+  <h1>YAYYYY 🥰💖</h1>
+  <p>
+  Thank you for accepting me as who I am 🥺<br>
+  Thank you for choosing me 💕<br><br>
+  I love you 🥹😘
+</p>
+
+  <!-- SAME GIF -->
+  <img class="gif"
+       src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif">
+
+  <!-- TWO FINAL IMAGES -->
+  <div class="media">
+    <img src="final1.jpg">
+    <img src="final2.jpg">
+  </div>
+</div>
+
+<script>
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+
+  noBtn.addEventListener("click", () => {
+    alert("Try again 😝❤️");
+    noBtn.style.left = Math.random() * 200 + "px";
+    noBtn.style.top = Math.random() * 80 + "px";
+  });
+
+  yesBtn.addEventListener("click", () => {
+    document.getElementById("main").style.display = "none";
+    document.getElementById("result").style.display = "block";
+  });
+</script>
+
+</body>
+</html>
